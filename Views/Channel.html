@@ -1,0 +1,62 @@
+﻿<div class="container">
+    <!--Header-->
+    <div class="col-md-12">
+        <div class="panel-group">
+            <br />
+            <div class="panel panel-danger">
+                <div class="panel-heading"><h3 ng-bind="title"></h3></div>
+                <div class="panel-body">Comment and read these comments</div>
+            </div>
+        </div>
+    </div>
+    <!--Content-->
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table">
+                <tr>
+                    <th>Author</th>
+                    <th>Message</th>
+                    <th>Time sent</th>
+                </tr>
+                <tr ng-repeat="message in channel.messages track by $index">
+                    <td class="col-md-1" ng-bind="message.author"></td>
+                    <td class="col-md-2" ng-bind="message.body"></td>
+                    <td class="col-md-2" ng-bind="message.timeSent | date:'HH:mm  dd/MM/yyyy'"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col-md-4">
+            <form ng-submit="addMessage()">
+                <fieldset>
+                    <legend>New message</legend>
+                    <div class="form-group">
+                        <label for="title">Author</label>
+                        <input type="text"
+                               id="title"
+                               class="form-control"
+                               placeholder="Author..."
+                               ng-model="newMessage.author" />
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Body</label>
+                        <input type="text"
+                               id="author"
+                               class="form-control"
+                               placeholder="Body..."
+                               ng-model="newMessage.body" />
+                    </div>
+                    <button type="submit"
+                            class="btn btn-success">
+                        <span class="glyphicon glyphicon-plus"></span> Post message
+                    </button>
+                </fieldset>
+            </form>
+        </div>
+    </div> <!--End of row-->
+    <div class="row">
+        <div class="col-md-12">
+
+        </div>
+    </div>
+</div>

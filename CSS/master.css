@@ -3,6 +3,8 @@
 /* Components */
 @import url(Components/navbar.css);
 @import url(Components/carousel.css);
+@import url('Components/draggable.css');
 
 /* Layout */
 @import url(Layout/layout.css);
+

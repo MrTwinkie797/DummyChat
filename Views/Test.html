@@ -1,0 +1,25 @@
+﻿<!--<div class="col-md-12">
+    <h1 ng-bind="title"></h1>
+</div>
+
+
+<div class="row">
+    <div class="col-md-4 col-md-offset-1"
+         ng-repeat="channel in channels track by $index">
+
+        <draggable id="channel.id" body=""></draggable>
+    </div>
+</div>-->
+
+<form ng-submit="submitForm()" ng-init="name = ''">
+    <div class="col-md-4">
+
+        <div ng-repeat="input in formInputs track by $index">
+            <validate-message typeof="input.type"
+                              id="input.name"
+                              label="input.label"
+                              model="input.model"
+                              isValid="input.isValid"></validate-message>
+        </div>
+    </div>
+</form>

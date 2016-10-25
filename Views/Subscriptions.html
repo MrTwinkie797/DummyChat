@@ -1,0 +1,30 @@
+﻿<div class="container">
+    <div class="panel-group">
+        <br />
+        <div class="panel panel-primary">
+            <div class="panel-heading">Subscriptions-Room</div>
+            <div class="panel-body">See what channels you have subscribed to and enter them, you can also unsubscribe them</div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-4"
+                 ng-repeat="channel in feed track by $index"
+                 style="margin-top: 10px; margin-bottom: 7px;">
+                <img src="../Images/kittens.jpg" style="border-radius: 15px 50px 30px 5px; width: 190px; height: 130px;" />
+                <h3 ng-bind="channel.name"></h3>
+                <button type="button"
+                        class="btn btn-success"
+                        ng-click="go('/Channel/' + channel.id)">
+                    <span class="glyphicon glyphicon-comment"></span> Enter Room
+                </button>
+                <button type="button"
+                        class="btn btn-danger"
+                        ng-click="unsubscribe(channel.id)">
+                    <span class="glyphicon glyphicon-eye-close"></span> Unsubscribe
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

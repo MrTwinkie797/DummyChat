@@ -1,0 +1,50 @@
+﻿<div class="container">
+    <div class="col-md-12">
+        <div class="panel-group">
+            <br />
+            <div class="panel panel-danger">
+                <div class="panel-heading">Admin-Room</div>
+                <div class="panel-body">Add and remove channels here, you can also subscribe to them</div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12"
+             style="height:50px;text-align:center;">
+            <button type="button"
+                    data-toggle="modal"
+                    data-target="#newChannelModal"
+                    class="btn btn-success">
+                <span class="glyphicon glyphicon-plus"></span> New channel
+            </button>
+        </div>
+
+
+        <div class="col-md-4"
+             ng-repeat="channel in channels track by $index"
+             style="text-align: center; margin-top:10px; margin-bottom: 7px;">
+            <img src="../Images/kittens.jpg" style="border-radius: 15px 50px 30px 5px; width: 190px; height: 130px;" />
+            <h2 ng-bind="channel.name"></h2>
+            <h3 ng-bind="channel.id"></h3>
+
+            <button type="button"
+                    class="btn btn-info"
+                    ng-click="subscribe(channel.id)"
+                    ng-show="subscribedChannels.indexOf(channel.id) == -1">
+                <span class="glyphicon glyphicon-eye-open"></span> Subscribe
+            </button>
+
+            <span ng-show="subscribedChannels.indexOf(channel.id) != -1">
+                <span class="glyphicon glyphicon-eye-close"></span> Subscribed
+            </span>
+
+            <button type="button"
+                    class="btn btn-danger"
+                    ng-click="deleteChannel(channel)">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+        </div>
+    </div>
+</div>
+
+<div ng-include="'Views/Partials/NewChannelModal.html'"></div>
