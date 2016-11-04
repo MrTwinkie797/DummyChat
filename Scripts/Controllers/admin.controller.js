@@ -8,8 +8,7 @@ angular.module("mainModule")
             $scope.title = "Admin";
             $scope.newChannel = {
                 name: ""
-            };
-            //$scope.channels = [];      
+            };    
 
             $scope.subscribe = function (id) {
                 $scope.subscribedChannels.push(id);

@@ -3,7 +3,7 @@
         <div class="panel-group">
             <br />
             <div class="panel panel-danger">
-                <div class="panel-heading">Admin-Room</div>
+                <div class="panel-heading"><h2>Admin-Room</h2></div>
                 <div class="panel-body">Add and remove channels here, you can also subscribe to them</div>
             </div>
         </div>
@@ -33,10 +33,11 @@
                     ng-show="subscribedChannels.indexOf(channel.id) == -1">
                 <span class="glyphicon glyphicon-eye-open"></span> Subscribe
             </button>
-
-            <span ng-show="subscribedChannels.indexOf(channel.id) != -1">
+            <button
+                    class="btn btn-warning disabled"
+                    ng-show="subscribedChannels.indexOf(channel.id) != -1">
                 <span class="glyphicon glyphicon-eye-close"></span> Subscribed
-            </span>
+            </button>
 
             <button type="button"
                     class="btn btn-danger"

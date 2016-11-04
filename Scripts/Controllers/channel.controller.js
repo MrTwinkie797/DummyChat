@@ -16,21 +16,21 @@ angular.module("mainModule")
                 body: ""
             }
 
-            $scope.formInputs = [
-                {
-                    type: "text",
-                    id: "1",
-                    label: "Author",
-                    model: "",
-                    isValid: false
-                }, {
-                    type: "text",
-                    id: $scope.message.body,
-                    label: "Body",
-                    mdoel: "",
-                    isValid: false
-                }
-            ];
+            //$scope.formInputs = [
+            //    {
+            //        type: "text",
+            //        id: "1",
+            //        label: "Author",
+            //        model: "",
+            //        isValid: false
+            //    }, {
+            //        type: "text",
+            //        id: $scope.message.body,
+            //        label: "Body",
+            //        mdoel: "",
+            //        isValid: false
+            //    }
+            //];
 
             var poll = function () {
                 $timeout(function () {

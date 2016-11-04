@@ -7,8 +7,10 @@ angular.module("mainModule")
         "$route",
         "channelsApi",
         "messagesApi",
+        "Hub",
         "$timeout",
-        function ($scope, $location, $route, channelsApi, messagesApi, $timeout) {
+        "$rootScope",
+        function ($scope, $location, $route, channelsApi, messagesApi, Hub, $timeout, $rootScope) {
             $scope.$route = $route;
             $scope.channels = [];
             $scope.messages = [];
@@ -21,17 +23,36 @@ angular.module("mainModule")
                 });
             }
 
+            var getHub = function (path, hubname) {
+                var hub = null;
+                hub = new Hub(hubname, {
+                    listeners: {
+                        'recieveMessage': function (message) {
+                            console.log(message);
+                            console.log("hello");
+                            $rootScope.$apply();
+                        }
+                    },
+                    rootPath: path,
+
+                    errorHandler: function (error) {
+                        console.error(error);
+                    }
+                });
+            }
+
+
             var poll = function () {
                 $timeout(function () {
                     channelsApi.getChannels()
-                .then(function (data) {
-                    $scope.channels = data;
-                    if (data != null) {
-                        $scope.channels = data;
+                        .then(function (data) {
+                            $scope.channels = data;
+                            if (data != null) {
+                                $scope.channels = data;
 
-                        $scope.getFeed();
-                    }
-                });
+                                $scope.getFeed();
+                            }
+                        });
 
                     messagesApi.getMessages()
                         .then(function (data) {
@@ -78,5 +99,7 @@ angular.module("mainModule")
 
             $scope.loadSubscribedChannels();
             poll();
+
+            getHub("http://dummyapi.kodalagom.se/signalr", "chatHub");
         }
     ]);

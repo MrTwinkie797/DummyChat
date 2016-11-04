@@ -4,24 +4,24 @@
         <div class="panel-group">
             <br />
             <div class="panel panel-danger">
-                <div class="panel-heading"><h3 ng-bind="title"></h3></div>
+                <div class="panel-heading"><h2 ng-bind="'Channel name: ' + channel.name"></h2></div>
                 <div class="panel-body">Comment and read these comments</div>
             </div>
         </div>
     </div>
     <!--Content-->
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8" style="height: 400px; overflow:auto;">
             <table class="table">
                 <tr>
                     <th>Author</th>
                     <th>Message</th>
                     <th>Time sent</th>
                 </tr>
-                <tr ng-repeat="message in channel.messages track by $index">
+                <tr ng-repeat="message in channel.messages | orderBy:'timeSent':true track by $index">
                     <td class="col-md-1" ng-bind="message.author"></td>
-                    <td class="col-md-2" ng-bind="message.body"></td>
-                    <td class="col-md-2" ng-bind="message.timeSent | date:'HH:mm  dd/MM/yyyy'"></td>
+                    <td class="col-md-1" ng-bind="message.body"></td>
+                    <td class="col-md-1" ng-bind="message.timeSent | date:'HH:mm  dd/MM/yyyy'"></td>
                 </tr>
             </table>
         </div>
