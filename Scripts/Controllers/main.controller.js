@@ -67,8 +67,6 @@ angular.module("mainModule")
                 }, 1000);
             };
 
-
-
             //Laddar in från LS
             $scope.loadSubscribedChannels = function () {
                 var dataString = localStorage.getItem("subscribedChannels");

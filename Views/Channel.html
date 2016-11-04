@@ -21,7 +21,7 @@
                 <tr ng-repeat="message in channel.messages | orderBy:'timeSent':true track by $index">
                     <td class="col-md-1" ng-bind="message.author"></td>
                     <td class="col-md-1" ng-bind="message.body"></td>
-                    <td class="col-md-1" ng-bind="message.timeSent | date:'HH:mm  dd/MM/yyyy'"></td>
+                    <td class="col-md-1" ng-bind="message.timeSent | date:'short'"></td>
                 </tr>
             </table>
         </div>
